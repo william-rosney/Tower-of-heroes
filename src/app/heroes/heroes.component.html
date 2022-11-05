@@ -1,0 +1,18 @@
+<div>
+    <ul>
+        <li *ngFor="let hero of heroes" (click)="onSelect(hero)">
+            {{hero.id}}  {{hero.name}}
+        </li>
+    </ul>
+    <button (click)="addHeroMode = true">Add Hero</button>
+</div>
+<div *ngIf="addHeroMode">
+    <form (ngSubmit)="addHero()">
+        <input type="text" name="heroName" [(ngModel)]="newHero.name">
+        <input type="number" name="heroId" [(ngModel)]="newHero.id">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<div *ngIf="selectedHero">
+    <app-hero-details [hero]="selectedHero"></app-hero-details>
+</div>

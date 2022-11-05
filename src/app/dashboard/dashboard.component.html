@@ -1,0 +1,8 @@
+<div *ngIf="lastAddedHeroes.length > 0">
+    <a *ngFor="let hero of lastAddedHeroes" (click)="onSelect(hero)">
+        {{hero.name}}
+    </a>
+    <div *ngIf="selectedHero">
+        <app-hero-details [hero]="selectedHero"></app-hero-details>
+    </div>
+</div>
